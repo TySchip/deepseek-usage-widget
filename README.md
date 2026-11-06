@@ -24,6 +24,11 @@
 
 ## 工作流程
 
+![DeepSeek 余额与历史 Token 接入网站流程](docs/images/workflow.svg)
+
+<details>
+<summary>查看可编辑的 Mermaid 流程图源码</summary>
+
 ```mermaid
 flowchart TD
     A["你的网站后台 / 独立页面"] --> B["管理员鉴权"]
@@ -39,6 +44,8 @@ flowchart TD
     K --> L
     L -. "供页面读取" .-> D
 ```
+
+</details>
 
 浏览器只访问你自己的服务端。余额与历史用量使用两种不同的凭据：
 

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title description">
+  <title id="title">DeepSeek 余额与历史 Token 接入网站流程</title>
+  <desc id="description">Worker 使用服务端的两种凭据查询余额和分月历史，排除北京时间当天，保存到 D1。网站通过管理员鉴权读取快照。每天定时同步，也支持手动同步和断点恢复。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#477a82"/>
+    </marker>
+    <style>
+      text { font-family: system-ui, 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif; text-anchor: middle; fill: #16324a; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .label { font-size: 24px; font-weight: 650; }
+      .body { font-size: 20px; }
+      .small { font-size: 18px; fill: #526e7c; }
+      .box { fill: #fff; stroke: #cfdee4; stroke-width: 2; }
+      .accent { fill: #f0faf7; stroke: #5a9b91; stroke-width: 2; }
+      .line { fill: none; stroke: #477a82; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="850" rx="20" fill="#eef5f7"/>
+  <text x="600" y="56" class="heading">DeepSeek 余额与 Token 接入网站</text>
+  <text x="600" y="94" class="small">DeepSeek 凭据保存在服务端，网页读取已保存的快照</text>
+
+  <rect x="50" y="130" width="500" height="115" rx="14" class="box"/>
+  <text x="300" y="173" class="label">官方余额接口</text>
+  <text x="300" y="211" class="small">DEEPSEEK_API_KEY</text>
+  <rect x="650" y="130" width="500" height="115" rx="14" class="box"/>
+  <text x="900" y="173" class="label">平台分月历史用量接口</text>
+  <text x="900" y="211" class="small">DEEPSEEK_USAGE_TOKEN</text>
+  <path d="M 300 245 V 275 H 480 V 305" class="line"/>
+  <path d="M 900 245 V 275 H 720 V 305" class="line"/>
+
+  <rect x="250" y="310" width="700" height="170" rx="14" class="accent"/>
+  <text x="600" y="351" class="label">Cloudflare Worker</text>
+  <text x="600" y="389" class="body">每日定时 / 手动同步</text>
+  <text x="600" y="423" class="body">所有返回模型 · Token 排除北京时间当天</text>
+  <text x="600" y="457" class="small">分批补齐历史 · 请求间隔与重试 · 保留已完成月份</text>
+  <path d="M 600 480 V 535" class="line"/>
+  <text x="683" y="516" class="small">保存快照</text>
+
+  <rect x="400" y="540" width="400" height="100" rx="14" class="box"/>
+  <text x="600" y="581" class="label">D1 数据库</text>
+  <text x="600" y="614" class="small">余额快照 + 历史 Token + 同步进度</text>
+  <path d="M 600 640 V 695" class="line"/>
+  <text x="732" y="676" class="small">鉴权后读取 /api/usage</text>
+
+  <rect x="300" y="700" width="600" height="105" rx="14" class="accent"/>
+  <text x="600" y="741" class="label">你的网站后台</text>
+  <text x="600" y="778" class="body">余额　|　累计 Token</text>
+  <text x="600" y="834" class="small">iframe 嵌入，或通过现有网站服务端代理接入</text>
+</svg>
