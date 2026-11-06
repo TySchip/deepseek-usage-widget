@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DeepSeek 用量</title>
+  <style>
+    :root { font-family: system-ui, "Microsoft YaHei", sans-serif; color: #16324a; background: #eef5f7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 16px; }
+    main { max-width: 640px; margin: auto; padding: 20px; background: #fff; border: 1px solid #d8e6ea; border-radius: 12px; }
+    h1 { margin: 0; font-size: 22px; }
+    .row { display: flex; gap: 10px; align-items: center; justify-content: space-between; }
+    input { min-width: 0; flex: 1; padding: 9px; border: 1px solid #b8ccd3; border-radius: 6px; font: inherit; }
+    button { background: #08756f; color: white; border: 0; border-radius: 6px; padding: 9px 14px; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: wait; }
+    .numbers { margin-top: 16px; padding: 18px; border-radius: 10px; background: #f4faf9; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .numbers strong { display: block; margin-top: 5px; font-size: 26px; overflow-wrap: anywhere; }
+    #status, #loginStatus { margin-bottom: 0; color: #b33b3b; font-size: 13px; }
+    #status:empty, #loginStatus:empty { display: none; }
+    [hidden] { display: none !important; }
+    @media (max-width: 440px) { .numbers { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="login">
+      <h1>DeepSeek 用量</h1>
+      <form id="loginForm" class="row" style="margin-top:16px">
+        <input id="token" type="password" aria-label="管理员令牌" placeholder="管理员令牌" autocomplete="off" required>
+        <button>登录</button>
+      </form>
+      <p id="loginStatus" role="status"></p>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="row"><h1>DeepSeek</h1><button id="sync" type="button">同步</button></div>
+      <div class="numbers">
+        <div>余额<strong id="balance">—</strong></div>
+        <div>累计 Token<strong id="tokens">—</strong></div>
+      </div>
+      <p id="status" role="status"></p>
+    </section>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

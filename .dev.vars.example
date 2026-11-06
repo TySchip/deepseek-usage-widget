@@ -1,0 +1,4 @@
+# Copy to .dev.vars for LOCAL development only. Never commit real values.
+ADMIN_TOKEN="replace-with-a-long-random-admin-token"
+DEEPSEEK_API_KEY="replace-with-your-deepseek-api-key"
+DEEPSEEK_USAGE_TOKEN="replace-with-your-deepseek-web-usage-token"

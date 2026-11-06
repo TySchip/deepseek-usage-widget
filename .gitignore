@@ -1,0 +1,15 @@
+node_modules/
+.wrangler/
+.check/
+.artifacts/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env
+.env.*
+!.env.example
+*.log
+*.pem
+*.key
+.DS_Store
+Thumbs.db
